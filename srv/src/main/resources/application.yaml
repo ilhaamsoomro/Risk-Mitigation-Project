@@ -1,0 +1,53 @@
+
+---
+spring:
+  config.activate.on-profile: default
+  sql.init.platform: h2
+cds:
+  data-source.auto-config.enabled: false
+---
+management:
+  endpoint:
+    health:
+      show-components: always
+      probes.enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  health:
+    defaults.enabled: false
+    ping.enabled: true
+    db.enabled: true
+---
+spring:
+  config:
+    activate:
+      on-profile: cloud
+cds:
+  remote:
+    services:
+      '[BusinessPartnerA2X]':
+        destination:
+          name: apihub_sandbox
+        http:
+          service: s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER
+          csrf:
+            enabled: true
+        type: odata-v2
+---
+spring:
+  config:
+    activate:
+      on-profile: preview-destination
+cds:
+  remote:
+    services:
+      '[BusinessPartnerA2X]':
+        destination:
+          name: apihub_sandbox
+        http:
+          service: s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER
+          csrf:
+            enabled: true
+        type: odata-v2

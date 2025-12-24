@@ -1,0 +1,70 @@
+
+# ========== CAP / CDS build outputs ==========
+.gen/
+gen/
+out/
+dist/
+coverage/
+
+# EDMX and generated models (keep if you generate locally and don't want in repo)
+**/edmx/
+# If you import to CSN/CDS and keep the sources, you may choose to commit the generated CD S/CSN files.
+# Otherwise, ignore the /edmx folder if it's only intermediate.
+
+# ========== Databases (local dev only) ==========
+*.db
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+schema*.sql
+
+# ========== Environment / secrets (DO NOT COMMIT) ==========
+# Local env files with credentials, API keys, destinations
+.env
+default-env.json
+application-local.yaml
+credentials.json
+local-dev.json
+
+# ========== Java / Maven ==========
+**/target/
+**/bin/
+*.class
+*.jar
+*.war
+.flattened-pom.xml
+.classpath
+.project
+.settings/
+
+# ========== Node / JS tooling ==========
+**/node/
+**/node_modules/
+npm-debug.log*
+.yarn/
+.pnpm-debug.log
+
+# NOTE: Lockfiles are usually GOOD to commit for reproducible builds.
+# If you use npm, KEEP package-lock.json in the repo.
+# If you use yarn/pnpm, KEEP yarn.lock/pnpm-lock.yaml respectively.
+# Uncomment below ONLY if you truly want to ignore (not recommended):
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# ========== MTA / CF artifacts ==========
+**/.mta/
+*.mtar
+
+# ========== IDE / OS ==========
+.vscode/
+.idea/
+.reloadtrigger
+.DS_Store
+
+# ========== Logs & temp ==========
+*.log*
+gc_history*
+hs_err*
+*.tgz
+*.iml
